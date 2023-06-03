@@ -1,9 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Body, Post } from '@nestjs/common';
 
 @Controller('orders')
 export class OrdersController {
   @Get()
-  getOrders() {
+  getAll() {
     return 'Orders';
+  }
+
+  @Post()
+  create(@Body() payload) {
+    return {
+      msg: 'Created',
+      payload,
+    };
   }
 }
